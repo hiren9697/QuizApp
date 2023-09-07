@@ -1,0 +1,12 @@
+QuizeEngine/QuizeEngine.xcodeproj/project.xcworkspace
+QuizeEngine/QuizeEngine.xcodeproj/xcuserdata
+QuizeEngine/QuizeEngine.xcodeproj/project.xcworkspace/xcuserdata
+QuizeEngine/QuizeEngine.xcodeproj/project.xcworkspace/QuizeEngine.xcworkspace
+QuizeEngine/QuizeEngine.xcworkspace/contents.xcworkspacedata
+QuizeEngine/QuizeEngine.xcworkspace/xcuserdata
+QuizeEngine/QuizeEngine.xcworkspace
+QuizeEngine/QuizeEngine.xcworkspace/xcshareddata
+Pods
+*.DS_Store
+.DS_Store
+Podfile.lock
