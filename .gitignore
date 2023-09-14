@@ -6,6 +6,16 @@ QuizeEngine/QuizeEngine.xcworkspace/contents.xcworkspacedata
 QuizeEngine/QuizeEngine.xcworkspace/xcuserdata
 QuizeEngine/QuizeEngine.xcworkspace
 QuizeEngine/QuizeEngine.xcworkspace/xcshareddata
+
+QuizeApp/QuizeApp.xcodeproj/project.xcworkspace
+QuizeApp/QuizeApp.xcodeproj/xcuserdata
+QuizeApp/QuizeApp.xcodeproj/project.xcworkspace/xcuserdata
+QuizeApp/QuizeApp.xcodeproj/project.xcworkspace/QuizeApp.xcworkspace
+QuizeApp/QuizeApp.xcworkspace/contents.xcworkspacedata
+QuizeApp/QuizeApp.xcworkspace/xcuserdata
+QuizeApp/QuizeApp.xcworkspace
+QuizeApp/QuizeApp.xcworkspace/xcshareddata
+
 Pods
 *.DS_Store
 .DS_Store
