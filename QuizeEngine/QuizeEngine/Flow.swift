@@ -28,28 +28,32 @@ class Flow {
     func start() {
         if let firstQuestion = questions.first {
             router.routeTo(question: firstQuestion,
-                           answerCallback: routeNext(currentQuestion: firstQuestion))
+                           answerCallback: nextCallback(currentQuestion: firstQuestion))
         } else {
             router.routeTo(result: [:])
         }
     }
     
-    private func routeNext(currentQuestion: String)-> Router.AnswerCallback {
+    private func nextCallback(currentQuestion: String)-> Router.AnswerCallback {
         return { answer in
-            self.result[currentQuestion] = answer
-            guard let currentQuestionIndex = self.questions.firstIndex(of: currentQuestion) else {
-                return
-            }
-            let nextQuestionIndex = currentQuestionIndex + 1
-            if nextQuestionIndex < self.questions.count {
-                // Route to next question
-                let nextQuestion = self.questions[currentQuestionIndex + 1]
-                self.router.routeTo(question: nextQuestion,
-                                    answerCallback: self.routeNext(currentQuestion: nextQuestion))
-            } else {
-                // Route to result
-                self.router.routeTo(result: self.result)
-            }
+            self.routeNext(question: currentQuestion, answer: answer)
+        }
+    }
+    
+    private func routeNext(question: String, answer: String) {
+        result[question] = answer
+        guard let currentQuestionIndex = questions.firstIndex(of: question) else {
+            return
+        }
+        let nextQuestionIndex = currentQuestionIndex + 1
+        if nextQuestionIndex < questions.count {
+            // Route to next question
+            let nextQuestion = questions[currentQuestionIndex + 1]
+            self.router.routeTo(question: nextQuestion,
+                                answerCallback: nextCallback(currentQuestion: nextQuestion))
+        } else {
+            // Route to result
+            self.router.routeTo(result: result)
         }
     }
 }
