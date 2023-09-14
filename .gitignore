@@ -9,4 +9,6 @@ QuizeEngine/QuizeEngine.xcworkspace/xcshareddata
 Pods
 *.DS_Store
 .DS_Store
+*.xcuserdata
+.xcuserdata
 Podfile.lock
