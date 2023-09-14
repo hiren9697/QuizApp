@@ -10,6 +10,8 @@
 		878EFEF32AA9C8290075EF71 /* QuizeEngine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 878EFEEA2AA9C8290075EF71 /* QuizeEngine.framework */; };
 		878EFEF82AA9C8290075EF71 /* QuizeEngineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878EFEF72AA9C8290075EF71 /* QuizeEngineTests.swift */; };
 		878EFEF92AA9C8290075EF71 /* QuizeEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = 878EFEED2AA9C8290075EF71 /* QuizeEngine.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8794BA062AAC856500BC3C98 /* FlowTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8794BA052AAC856500BC3C98 /* FlowTest.swift */; };
+		8794BA082AAC858900BC3C98 /* Flow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8794BA072AAC858900BC3C98 /* Flow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,6 +29,8 @@
 		878EFEED2AA9C8290075EF71 /* QuizeEngine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuizeEngine.h; sourceTree = "<group>"; };
 		878EFEF22AA9C8290075EF71 /* QuizeEngineTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuizeEngineTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		878EFEF72AA9C8290075EF71 /* QuizeEngineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizeEngineTests.swift; sourceTree = "<group>"; };
+		8794BA052AAC856500BC3C98 /* FlowTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowTest.swift; sourceTree = "<group>"; };
+		8794BA072AAC858900BC3C98 /* Flow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +74,7 @@
 			isa = PBXGroup;
 			children = (
 				878EFEED2AA9C8290075EF71 /* QuizeEngine.h */,
+				8794BA072AAC858900BC3C98 /* Flow.swift */,
 			);
 			path = QuizeEngine;
 			sourceTree = "<group>";
@@ -78,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				878EFEF72AA9C8290075EF71 /* QuizeEngineTests.swift */,
+				8794BA052AAC856500BC3C98 /* FlowTest.swift */,
 			);
 			path = QuizeEngineTests;
 			sourceTree = "<group>";
@@ -144,6 +150,7 @@
 				TargetAttributes = {
 					878EFEE92AA9C8290075EF71 = {
 						CreatedOnToolsVersion = 14.3;
+						LastSwiftMigration = 1430;
 					};
 					878EFEF12AA9C8290075EF71 = {
 						CreatedOnToolsVersion = 14.3;
@@ -191,6 +198,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8794BA082AAC858900BC3C98 /* Flow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -199,6 +207,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				878EFEF82AA9C8290075EF71 /* QuizeEngineTests.swift in Sources */,
+				8794BA062AAC856500BC3C98 /* FlowTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,6 +344,7 @@
 		878EFEFD2AA9C8290075EF71 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -358,6 +368,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -365,6 +376,7 @@
 		878EFEFE2AA9C8290075EF71 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -395,6 +407,7 @@
 		878EFF002AA9C8290075EF71 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -409,6 +422,7 @@
 		878EFF012AA9C8290075EF71 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
