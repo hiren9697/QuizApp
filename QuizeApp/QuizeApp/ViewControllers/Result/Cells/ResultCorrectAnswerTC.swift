@@ -10,4 +10,9 @@ import UIKit
 class ResultCorrectAnswerTC: ParentTC {
     @IBOutlet weak var lblQuestion: UILabel!
     @IBOutlet weak var lblAnswer: UILabel!
+    
+    func configure(answer: PresentableAnswer) {
+        lblQuestion.text = answer.question
+        lblAnswer.text = answer.answer
+    }
 }

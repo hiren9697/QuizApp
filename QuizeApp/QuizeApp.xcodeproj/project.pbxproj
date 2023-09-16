@@ -26,6 +26,7 @@
 		878A64312AB5D00F00B3E3A5 /* ResultCorrectAnswerTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878A64302AB5D00F00B3E3A5 /* ResultCorrectAnswerTC.swift */; };
 		878A64332AB5D0CC00B3E3A5 /* ResultWrongAnswerTC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 878A64322AB5D0CC00B3E3A5 /* ResultWrongAnswerTC.xib */; };
 		878A64352AB5D12A00B3E3A5 /* ResultWrongAnswerTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878A64342AB5D12A00B3E3A5 /* ResultWrongAnswerTC.swift */; };
+		878A64382AB5D1F800B3E3A5 /* PresentableAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878A64372AB5D1F800B3E3A5 /* PresentableAnswer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		878A64302AB5D00F00B3E3A5 /* ResultCorrectAnswerTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultCorrectAnswerTC.swift; sourceTree = "<group>"; };
 		878A64322AB5D0CC00B3E3A5 /* ResultWrongAnswerTC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultWrongAnswerTC.xib; sourceTree = "<group>"; };
 		878A64342AB5D12A00B3E3A5 /* ResultWrongAnswerTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultWrongAnswerTC.swift; sourceTree = "<group>"; };
+		878A64372AB5D1F800B3E3A5 /* PresentableAnswer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentableAnswer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 			children = (
 				878A641F2AB5CB8B00B3E3A5 /* AppLifeCycle */,
 				878A64202AB5CB9C00B3E3A5 /* Storyboards */,
+				878A64362AB5D1EB00B3E3A5 /* Model */,
 				878A64222AB5CBBA00B3E3A5 /* ViewControllers */,
 				878A64282AB5CC4200B3E3A5 /* Utility */,
 				878A64212AB5CBAF00B3E3A5 /* Resources */,
@@ -227,6 +230,14 @@
 				878A64342AB5D12A00B3E3A5 /* ResultWrongAnswerTC.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		878A64362AB5D1EB00B3E3A5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				878A64372AB5D1F800B3E3A5 /* PresentableAnswer.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -363,6 +374,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				878A64382AB5D1F800B3E3A5 /* PresentableAnswer.swift in Sources */,
 				878A64182AB563FF00B3E3A5 /* QuestionVC.swift in Sources */,
 				878A642A2AB5CC7E00B3E3A5 /* ParentCells.swift in Sources */,
 				878A642C2AB5CC9F00B3E3A5 /* QuestionOptionTC.swift in Sources */,

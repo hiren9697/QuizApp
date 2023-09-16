@@ -11,24 +11,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let windowScene = (scene as? UIWindowScene) else { return }
         // 1. Init initial view controller
-        /*
-        let questionVC = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(identifier: "QuestionVC") { coder in
-            QuestionVC(question: "Q1", options: ["O1", "O2", "O3"], coder: coder)!
-        }
-        let navigationVC = UINavigationController(rootViewController: questionVC)
-         */
-        let resultVC = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(identifier: "ResultVC") { coder in
-            ResultVC(summary: "abcde", coder: coder)
-        }
-        let navigationVC = UINavigationController(rootViewController: resultVC)
+        let vc = getDummyResultVC()
         // 2. Configure window
         let window = UIWindow(windowScene: windowScene)
-        window.rootViewController = navigationVC
+        window.rootViewController = vc
         self.window = window
         window.makeKeyAndVisible()
     }
@@ -59,6 +47,36 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Called as the scene transitions from the foreground to the background.
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
+    }
+    
+    func getDummyQuestionVC() {
+        let questionVC = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(identifier: "QuestionVC") { coder in
+            QuestionVC(question: "Q1",
+                       options: ["O1", "O2", "O3"],
+                       coder: coder)!
+        }
+        let navigationVC = UINavigationController(rootViewController: questionVC)
+    }
+    
+    func getDummyResultVC()-> UIViewController {
+        let resultVC = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(identifier: "ResultVC") { coder in
+            ResultVC(summary: "Got 2 questions correct out of 4 questions",
+                     answers: [
+                        PresentableAnswer(question: "Q1",
+                                          answer: "A1"),
+                        PresentableAnswer(question: "Q2",
+                                          answer: "A1",
+                                          wrongAnswer: "A2"),
+                        PresentableAnswer(question: "Q3",
+                                          answer: "A2",
+                                          wrongAnswer: "A1"),
+                        PresentableAnswer(question: "Q4",
+                                          answer: "A2"),
+                     ],
+                     coder: coder)
+        }
+        let navigationVC = UINavigationController(rootViewController: resultVC)
+        return navigationVC
     }
 }
 

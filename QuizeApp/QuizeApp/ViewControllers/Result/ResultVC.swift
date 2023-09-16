@@ -13,9 +13,13 @@ class ResultVC: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     let summary: String
+    let answers: [PresentableAnswer]
     
-    init?(summary: String, coder: NSCoder) {
+    init?(summary: String,
+          answers: [PresentableAnswer],
+          coder: NSCoder) {
         self.summary = summary
+        self.answers = answers
         super.init(coder: coder)
     }
     
@@ -45,10 +49,21 @@ extension ResultVC {
 // MARK: - TableView method(s)
 extension ResultVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        0
+        answers.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let answer = answers[indexPath.row]
+        if answer.isCorrect {
+            let cell = tableView.dequeueReusableCell(withIdentifier: ResultCorrectAnswerTC.reuseIdentifier,
+                                                     for: indexPath) as! ResultCorrectAnswerTC
+            cell.configure(answer: answer)
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: ResultWrongAnswerTC.reuseIdentifier,
+                                                     for: indexPath) as! ResultWrongAnswerTC
+            cell.configure(answer: answer)
+            return cell
+        }
     }
 }
