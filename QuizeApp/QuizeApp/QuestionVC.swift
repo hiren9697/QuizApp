@@ -7,15 +7,22 @@
 
 import UIKit
 
+// MARK: - TC
+class QuestionOptionTC: UITableViewCell {
+    @IBOutlet weak var lblOption: UILabel!
+}
+
 // MARK: - VC
 class QuestionVC: UIViewController {
-    @IBOutlet weak var lblQuestion: UILabel!
+    @IBOutlet weak var lblHeader: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
     let question: String
+    let options: [String]
     
-    init?(question: String, coder: NSCoder) {
+    init?(question: String, options: [String], coder: NSCoder) {
         self.question = question
+        self.options = options
         super.init(coder: coder)
     }
     
@@ -26,6 +33,16 @@ class QuestionVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI()
+    }
+}
+
+// MARK: - Helper method(s)
+extension QuestionVC {
+    
+    private func setupUI() {
+        lblHeader.text = question
+        tableView.reloadData()
     }
 }
 
@@ -33,10 +50,12 @@ class QuestionVC: UIViewController {
 extension QuestionVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        0
+        options.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: "QuestionOptionTC", for: indexPath) as! QuestionOptionTC
+        cell.lblOption.text = options[indexPath.row]
+        return cell
     }
 }
