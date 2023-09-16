@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ResultCorrectAnswerTC" rowHeight="69" id="tqu-RU-s2h" customClass="ResultCorrectAnswerTC" customModule="QuizeApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="69"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tqu-RU-s2h" id="CfM-h7-OVd">
+                <rect key="frame" x="0.0" y="0.0" width="393" height="69"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UrY-0m-0Go">
+                        <rect key="frame" x="20" y="10" width="353" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bvD-dx-CHL">
+                        <rect key="frame" x="30" y="41" width="343" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" systemColor="systemGreenColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="bvD-dx-CHL" secondAttribute="trailing" constant="20" id="0yU-Lg-5pg"/>
+                    <constraint firstItem="bvD-dx-CHL" firstAttribute="top" secondItem="UrY-0m-0Go" secondAttribute="bottom" constant="10" id="6UB-M6-ggN"/>
+                    <constraint firstItem="bvD-dx-CHL" firstAttribute="leading" secondItem="UrY-0m-0Go" secondAttribute="leading" constant="10" id="OFb-r4-qYI"/>
+                    <constraint firstAttribute="trailing" secondItem="UrY-0m-0Go" secondAttribute="trailing" constant="20" id="Teb-Xd-b9f"/>
+                    <constraint firstItem="UrY-0m-0Go" firstAttribute="leading" secondItem="CfM-h7-OVd" secondAttribute="leading" constant="20" id="Vhs-4r-byG"/>
+                    <constraint firstItem="UrY-0m-0Go" firstAttribute="top" secondItem="CfM-h7-OVd" secondAttribute="top" constant="10" id="VrG-gb-FZV"/>
+                    <constraint firstAttribute="bottom" secondItem="bvD-dx-CHL" secondAttribute="bottom" constant="10" id="bTl-PA-XmG"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="lblAnswer" destination="bvD-dx-CHL" id="hne-aK-A9j"/>
+                <outlet property="lblQuestion" destination="UrY-0m-0Go" id="Cgh-KE-TEv"/>
+            </connections>
+            <point key="canvasLocation" x="249.61832061068702" y="-52.464788732394368"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

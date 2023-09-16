@@ -35,6 +35,10 @@ class ResultVC: UIViewController {
 extension ResultVC {
     private func setup() {
         lblHeader.text = summary
+        tableView.register(ResultCorrectAnswerTC.nib,
+                           forCellReuseIdentifier: ResultCorrectAnswerTC.reuseIdentifier)
+        tableView.register(ResultWrongAnswerTC.nib,
+                           forCellReuseIdentifier: ResultWrongAnswerTC.reuseIdentifier)
     }
 }
 
