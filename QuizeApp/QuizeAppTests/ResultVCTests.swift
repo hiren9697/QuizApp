@@ -15,14 +15,44 @@ final class ResultVCTests: XCTestCase {
     }
     
     func test_withoutAnswers_doesNotRenderAnswers() {
-        let sut = makeSUT(summary: "")
+        XCTAssertEqual(makeSUT(answers: []).tableView.numberOfRows(inSection: 0),
+                       0)
+    }
+    
+    func test_withOneCorrectAnswer_rendersCorrectAnswer() {
+        let question = "Q1"
+        let answer = "A1"
+        let sut = makeSUT(answers: [
+            PresentableAnswer(question: question, answer: answer)
+        ])
+        let cell = sut.tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? ResultCorrectAnswerTC
+        XCTAssertNotNil(cell)
+        XCTAssertEqual(cell?.lblQuestion.text, question)
+        XCTAssertEqual(cell?.lblAnswer.text, answer)
+    }
+    
+    func test_withOneWrongAnswer_rendersWrongAnswer() {
+        let question = "Q1"
+        let answer = "A1"
+        let wrongAnswer = "A2"
+        let sut = makeSUT(answers: [
+            PresentableAnswer(question: question, answer: answer, wrongAnswer: wrongAnswer)
+        ])
+        let cell = sut.tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? ResultWrongAnswerTC
+        XCTAssertNotNil(cell)
+        XCTAssertEqual(cell?.lblQuestion.text, question)
+        XCTAssertEqual(cell?.lblAnswer.text, answer)
+        XCTAssertEqual(cell?.lblWrongAnswer.text, wrongAnswer)
     }
 }
 
 extension ResultVCTests {
-    private func makeSUT(summary: String)-> ResultVC {
+    private func makeSUT(summary: String = "",
+                         answers: [PresentableAnswer] = [])-> ResultVC {
         let resultVC = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(identifier: "ResultVC") { coder in
-            ResultVC(summary: summary, coder: coder)
+            ResultVC(summary: summary,
+                     answers: answers,
+                     coder: coder)
         }
         _ = resultVC.view
         return resultVC
