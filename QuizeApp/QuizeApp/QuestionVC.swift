@@ -42,6 +42,7 @@ extension QuestionVC {
     
     private func setupUI() {
         lblHeader.text = question
+        tableView.allowsMultipleSelection = true
         tableView.reloadData()
     }
 }

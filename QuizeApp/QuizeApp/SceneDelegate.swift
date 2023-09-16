@@ -17,7 +17,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         // 1. Init initial view controller
         let questionVC = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(identifier: "QuestionVC") { coder in
-            QuestionVC(question: "Q1", options: [], coder: coder)!
+            QuestionVC(question: "Q1", options: ["O1", "O2", "O3"], coder: coder)!
         }
         let navigationVC = UINavigationController(rootViewController: questionVC)
         // 2. Configure window
