@@ -26,7 +26,7 @@ class QuestionVC: UIViewController {
         super.init(coder: coder)
     }
     
-    @available(*, unavailable, renamed: "init(question:coder:)")
+    @available(*, unavailable, renamed: "init(question:options:coder:)")
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

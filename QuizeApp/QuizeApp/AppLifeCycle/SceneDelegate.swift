@@ -16,10 +16,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let windowScene = (scene as? UIWindowScene) else { return }
         // 1. Init initial view controller
+        /*
         let questionVC = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(identifier: "QuestionVC") { coder in
             QuestionVC(question: "Q1", options: ["O1", "O2", "O3"], coder: coder)!
         }
         let navigationVC = UINavigationController(rootViewController: questionVC)
+         */
+        let resultVC = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(identifier: "ResultVC") { coder in
+            ResultVC(summary: "abcde", coder: coder)
+        }
+        let navigationVC = UINavigationController(rootViewController: resultVC)
         // 2. Configure window
         let window = UIWindow(windowScene: windowScene)
         window.rootViewController = navigationVC
