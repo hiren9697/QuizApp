@@ -7,11 +7,6 @@
 
 import UIKit
 
-// MARK: - TC
-class QuestionOptionTC: UITableViewCell {
-    @IBOutlet weak var lblOption: UILabel!
-}
-
 // MARK: - VC
 class QuestionVC: UIViewController {
     @IBOutlet weak var lblHeader: UILabel!
@@ -43,6 +38,8 @@ extension QuestionVC {
     private func setupUI() {
         lblHeader.text = question
         tableView.allowsMultipleSelection = true
+        tableView.register(QuestionOptionTC.nib,
+                           forCellReuseIdentifier: QuestionOptionTC.reuseIdentifier)
         tableView.reloadData()
     }
 }
