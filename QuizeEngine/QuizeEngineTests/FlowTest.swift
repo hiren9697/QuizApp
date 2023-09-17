@@ -80,9 +80,35 @@ final class FlowTest: XCTestCase {
         XCTAssertEqual(router.routedResult?.answers, ["Q1": "A1", "Q2": "A2"])
     }
     
+    /// Test statically passed score to scoring closure
+    func test_startWithTwoQuestions_answerFirstAndSecondQuestion_scores() {
+        let sut = makeSUT(questions: ["Q1", "Q2"], scoring: { _ in 10 })
+        sut.start()
+        router.answerCallback("A1")
+        XCTAssertNil(router.routedResult)
+        router.answerCallback("A2")
+        XCTAssertEqual(router.routedResult?.score, 10)
+    }
+    
+    /// Test Flow object passes right answers to scoring closure
+    func test_startWithTwoQuestions_answerFirstAndSecondQuestion_scoresWithRightAnswers() {
+        var receivedAnswers: [String: String]?
+        let sut = makeSUT(questions: ["Q1", "Q2"],
+                          scoring: { answers in
+            receivedAnswers = answers
+            return 0
+        })
+        sut.start()
+        router.answerCallback("A1")
+        XCTAssertNil(router.routedResult)
+        router.answerCallback("A2")
+        XCTAssertEqual(receivedAnswers, ["Q1": "A1", "Q2": "A2"])
+    }
+    
     // MARK: - Helper
-    func makeSUT(questions: [String])-> Flow<String, String, RouterSpy> {
-        return Flow(questions: questions, router: router)
+    func makeSUT(questions: [String],
+                 scoring: @escaping ([String: String])-> Int = { _ in 0 })-> Flow<String, String, RouterSpy> {
+        return Flow(questions: questions, router: router, scoring: scoring)
     }
     
     class RouterSpy: Router {

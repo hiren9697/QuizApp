@@ -16,7 +16,8 @@ protocol Router {
 }
 
 struct QuizResult<Question: Hashable, Answer> {
-    var answers: [Question: Answer]
+    let answers: [Question: Answer]
+    let score: Int
 }
 
 class Flow<Question: Hashable,
@@ -27,10 +28,14 @@ class Flow<Question: Hashable,
     // This is intermediate result, used to store question and answer every time user answers a question
     private var answers: [Question: Answer] = [:]
     private let router: R
+    private let scoring: ([Question: Answer])-> Int
     
-    init(questions: [Question], router: R) {
+    init(questions: [Question],
+         router: R,
+         scoring: @escaping ([Question: Answer])-> Int) {
         self.questions = questions
         self.router = router
+        self.scoring = scoring
     }
     
     func start() {
@@ -66,6 +71,6 @@ class Flow<Question: Hashable,
     }
     
     private func result()-> QuizResult<Question, Answer> {
-        QuizResult(answers: answers)
+        QuizResult(answers: answers, score: scoring(answers))
     }
 }
