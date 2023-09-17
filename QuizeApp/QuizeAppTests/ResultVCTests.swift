@@ -49,11 +49,13 @@ final class ResultVCTests: XCTestCase {
 extension ResultVCTests {
     private func makeSUT(summary: String = "",
                          answers: [PresentableAnswer] = [])-> ResultVC {
-        let resultVC = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(identifier: "ResultVC") { coder in
-            ResultVC(summary: summary,
-                     answers: answers,
-                     coder: coder)
-        }
+        let resultVC = Storyboards
+            .main
+            .instantiateViewController(identifier: ResultVC.storyboardID) { coder in
+                ResultVC(summary: summary,
+                         answers: answers,
+                         coder: coder)
+            }
         _ = resultVC.view
         return resultVC
     }

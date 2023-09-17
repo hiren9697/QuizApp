@@ -8,7 +8,7 @@
 import UIKit
 
 // MARK: - VC
-class ResultVC: UIViewController {
+class ResultVC: ParentVC {
     @IBOutlet weak var lblHeader: UILabel!
     @IBOutlet weak var tableView: UITableView!
     

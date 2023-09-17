@@ -8,7 +8,7 @@
 import UIKit
 
 // MARK: - VC
-class QuestionVC: UIViewController {
+class QuestionVC: ParentVC {
     @IBOutlet weak var lblHeader: UILabel!
     @IBOutlet weak var tableView: UITableView!
     

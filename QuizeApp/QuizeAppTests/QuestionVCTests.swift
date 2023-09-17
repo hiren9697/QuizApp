@@ -34,16 +34,16 @@ final class QuestionVCTests: XCTestCase {
         // 1. With one option
         let sut1 = makeSUT(options: ["O1"])
         sut1.tableView.selectRow(at: IndexPath(row: 0, section: 0),
-                                animated: false,
-                                scrollPosition: .top)
+                                 animated: false,
+                                 scrollPosition: .top)
         XCTAssertEqual(sut1.tableView.indexPathsForSelectedRows, [IndexPath(row: 0, section: 0)])
         
         // 1. With two option
         let sut2 = makeSUT(options: ["O1", "O2", "O3"])
         // Select first option
         sut2.tableView.selectRow(at: IndexPath(row: 0, section: 0),
-                                animated: false,
-                                scrollPosition: .top)
+                                 animated: false,
+                                 scrollPosition: .top)
         XCTAssertEqual(sut2.tableView.indexPathsForSelectedRows, [IndexPath(row: 0, section: 0)])
         // Deselect first option
         sut2.tableView.deselectRow(at: IndexPath(row: 0, section: 0),
@@ -51,11 +51,11 @@ final class QuestionVCTests: XCTestCase {
         XCTAssertEqual(sut2.tableView.indexPathsForSelectedRows, nil)
         // Select first and third option
         sut2.tableView.selectRow(at: IndexPath(row: 0, section: 0),
-                                animated: false,
-                                scrollPosition: .top)
+                                 animated: false,
+                                 scrollPosition: .top)
         sut2.tableView.selectRow(at: IndexPath(row: 2, section: 0),
-                                animated: false,
-                                scrollPosition: .top)
+                                 animated: false,
+                                 scrollPosition: .top)
         XCTAssertEqual(sut2.tableView.indexPathsForSelectedRows, [IndexPath(row: 0, section: 0),
                                                                   IndexPath(row: 2, section: 0)])
         // Deselect first option
@@ -69,10 +69,11 @@ final class QuestionVCTests: XCTestCase {
 private extension QuestionVCTests {
     private func makeSUT(question: String = "",
                          options: [String] = [])-> QuestionVC {
-        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        let vc = storyboard.instantiateViewController(identifier: "QuestionVC") { coder in
-            return QuestionVC(question: question, options: options, coder: coder)!
-        }
+        let vc = Storyboards
+            .main
+            .instantiateViewController(identifier: QuestionVC.storyboardID) { coder in
+                return QuestionVC(question: question, options: options, coder: coder)!
+            }
         _ = vc.view
         return vc
     }
