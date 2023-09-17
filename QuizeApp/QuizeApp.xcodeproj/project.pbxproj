@@ -12,9 +12,6 @@
 		8744D4F52AB2AA9D00F7C0DE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8744D4F32AB2AA9D00F7C0DE /* Main.storyboard */; };
 		8744D4F72AB2AA9E00F7C0DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8744D4F62AB2AA9E00F7C0DE /* Assets.xcassets */; };
 		8744D4FA2AB2AA9E00F7C0DE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8744D4F82AB2AA9E00F7C0DE /* LaunchScreen.storyboard */; };
-		8744D5052AB2AA9E00F7C0DE /* QuizeAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8744D5042AB2AA9E00F7C0DE /* QuizeAppTests.swift */; };
-		8744D50F2AB2AA9E00F7C0DE /* QuizeAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8744D50E2AB2AA9E00F7C0DE /* QuizeAppUITests.swift */; };
-		8744D5112AB2AA9E00F7C0DE /* QuizeAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8744D5102AB2AA9E00F7C0DE /* QuizeAppUITestsLaunchTests.swift */; };
 		878A64182AB563FF00B3E3A5 /* QuestionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878A64172AB563FF00B3E3A5 /* QuestionVC.swift */; };
 		878A641A2AB5683A00B3E3A5 /* QuestionVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878A64192AB5683A00B3E3A5 /* QuestionVCTests.swift */; };
 		878A641C2AB5A72900B3E3A5 /* ResultVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878A641B2AB5A72900B3E3A5 /* ResultVC.swift */; };
@@ -27,6 +24,8 @@
 		878A64332AB5D0CC00B3E3A5 /* ResultWrongAnswerTC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 878A64322AB5D0CC00B3E3A5 /* ResultWrongAnswerTC.xib */; };
 		878A64352AB5D12A00B3E3A5 /* ResultWrongAnswerTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878A64342AB5D12A00B3E3A5 /* ResultWrongAnswerTC.swift */; };
 		878A64382AB5D1F800B3E3A5 /* PresentableAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878A64372AB5D1F800B3E3A5 /* PresentableAnswer.swift */; };
+		878A648B2AB7316C00B3E3A5 /* QuizeAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878A64892AB7316C00B3E3A5 /* QuizeAppUITestsLaunchTests.swift */; };
+		878A648C2AB7316C00B3E3A5 /* QuizeAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878A648A2AB7316C00B3E3A5 /* QuizeAppUITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,10 +54,7 @@
 		8744D4F92AB2AA9E00F7C0DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8744D4FB2AB2AA9E00F7C0DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8744D5002AB2AA9E00F7C0DE /* QuizeAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuizeAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		8744D5042AB2AA9E00F7C0DE /* QuizeAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizeAppTests.swift; sourceTree = "<group>"; };
 		8744D50A2AB2AA9E00F7C0DE /* QuizeAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuizeAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		8744D50E2AB2AA9E00F7C0DE /* QuizeAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizeAppUITests.swift; sourceTree = "<group>"; };
-		8744D5102AB2AA9E00F7C0DE /* QuizeAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizeAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		878A64172AB563FF00B3E3A5 /* QuestionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionVC.swift; sourceTree = "<group>"; };
 		878A64192AB5683A00B3E3A5 /* QuestionVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionVCTests.swift; sourceTree = "<group>"; };
 		878A641B2AB5A72900B3E3A5 /* ResultVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultVC.swift; sourceTree = "<group>"; };
@@ -71,6 +67,9 @@
 		878A64322AB5D0CC00B3E3A5 /* ResultWrongAnswerTC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultWrongAnswerTC.xib; sourceTree = "<group>"; };
 		878A64342AB5D12A00B3E3A5 /* ResultWrongAnswerTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultWrongAnswerTC.swift; sourceTree = "<group>"; };
 		878A64372AB5D1F800B3E3A5 /* PresentableAnswer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentableAnswer.swift; sourceTree = "<group>"; };
+		878A64882AB7316B00B3E3A5 /* QuizeAppUITests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "QuizeAppUITests-Bridging-Header.h"; sourceTree = "<group>"; };
+		878A64892AB7316C00B3E3A5 /* QuizeAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuizeAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		878A648A2AB7316C00B3E3A5 /* QuizeAppUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuizeAppUITests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,7 +134,6 @@
 		8744D5032AB2AA9E00F7C0DE /* QuizeAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				8744D5042AB2AA9E00F7C0DE /* QuizeAppTests.swift */,
 				878A64192AB5683A00B3E3A5 /* QuestionVCTests.swift */,
 				878A641D2AB5BAFF00B3E3A5 /* ResultVCTests.swift */,
 			);
@@ -145,8 +143,9 @@
 		8744D50D2AB2AA9E00F7C0DE /* QuizeAppUITests */ = {
 			isa = PBXGroup;
 			children = (
-				8744D50E2AB2AA9E00F7C0DE /* QuizeAppUITests.swift */,
-				8744D5102AB2AA9E00F7C0DE /* QuizeAppUITestsLaunchTests.swift */,
+				878A648A2AB7316C00B3E3A5 /* QuizeAppUITests.swift */,
+				878A64892AB7316C00B3E3A5 /* QuizeAppUITestsLaunchTests.swift */,
+				878A64882AB7316B00B3E3A5 /* QuizeAppUITests-Bridging-Header.h */,
 			);
 			path = QuizeAppUITests;
 			sourceTree = "<group>";
@@ -315,6 +314,7 @@
 					};
 					8744D5092AB2AA9E00F7C0DE = {
 						CreatedOnToolsVersion = 14.3;
+						LastSwiftMigration = 1430;
 						TestTargetID = 8744D4E92AB2AA9D00F7C0DE;
 					};
 				};
@@ -392,7 +392,6 @@
 			files = (
 				878A641E2AB5BAFF00B3E3A5 /* ResultVCTests.swift in Sources */,
 				878A641A2AB5683A00B3E3A5 /* QuestionVCTests.swift in Sources */,
-				8744D5052AB2AA9E00F7C0DE /* QuizeAppTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -400,8 +399,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8744D5112AB2AA9E00F7C0DE /* QuizeAppUITestsLaunchTests.swift in Sources */,
-				8744D50F2AB2AA9E00F7C0DE /* QuizeAppUITests.swift in Sources */,
+				878A648C2AB7316C00B3E3A5 /* QuizeAppUITests.swift in Sources */,
+				878A648B2AB7316C00B3E3A5 /* QuizeAppUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -656,6 +655,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -663,6 +663,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = hiren.QuizeAppUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "QuizeAppUITests/QuizeAppUITests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = QuizeApp;
@@ -673,6 +675,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -680,6 +683,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = hiren.QuizeAppUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "QuizeAppUITests/QuizeAppUITests-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = QuizeApp;
