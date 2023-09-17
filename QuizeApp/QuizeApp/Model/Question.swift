@@ -1,0 +1,33 @@
+//
+//  Question.swift
+//  QuizeApp
+//
+//  Created by Hirenkumar Fadadu on 17/09/23.
+//
+
+import Foundation
+
+enum Question<T: Hashable>: Hashable {
+    case singleAnswer(T)
+    case multiAnswer(T)
+    
+    func hash(into hasher: inout Hasher) {
+        switch self {
+        case .singleAnswer(let value): hasher.combine(value.hashValue)
+        case .multiAnswer(let value): hasher.combine(value.hashValue)
+        }
+    }
+    
+    static func ==(lhs: Self, rhs: Self)-> Bool {
+        switch (lhs, rhs) {
+        case (.singleAnswer(let lhsValue), .singleAnswer(let rhsValue)):
+            return lhsValue == rhsValue
+        case (.singleAnswer(let lhsValue), .multiAnswer(let rhsValue)):
+            return lhsValue == rhsValue
+        case (.multiAnswer(let lhsValue), .singleAnswer(let rhsValue)):
+            return lhsValue == rhsValue
+        case (.multiAnswer(let lhsValue), .multiAnswer(let rhsValue)):
+            return lhsValue == rhsValue
+        }
+    }
+}
