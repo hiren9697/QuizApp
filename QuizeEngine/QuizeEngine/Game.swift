@@ -8,7 +8,7 @@
 import Foundation
 
 public class Game<Question: Hashable,
-                  Answer: Equatable,
+                  Answer: Hashable,
                   R: Router> where R.Question == Question,
                                    R.Answer == Answer {
     let flow: Flow<Question, Answer, R>
@@ -19,7 +19,7 @@ public class Game<Question: Hashable,
 }
 
 public func startGame<Question: Hashable,
-                      Answer: Equatable,
+                      Answer: Hashable,
                       R: Router>(questions: [Question],
                                  router: R,
                                  correctAnswers: [Question: Answer]
@@ -36,7 +36,7 @@ public func startGame<Question: Hashable,
 }
 
 private func scoring<Question: Hashable,
-                     Answer: Equatable>(answers: [Question: Answer],
+                     Answer: Hashable>(answers: [Question: Answer],
                                         correctAnswers: [Question: Answer])-> Int {
     return answers.reduce(0) { partialResult, answer in
         return partialResult + (correctAnswers[answer.key] == answer.value ? 1 : 0)

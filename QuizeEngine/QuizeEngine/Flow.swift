@@ -8,7 +8,7 @@
 import Foundation
 
 class Flow<Question: Hashable,
-           Answer,
+           Answer: Hashable,
            R: Router> where R.Question == Question,
                             R.Answer == Answer {
     private let questions: [Question]
