@@ -9,12 +9,13 @@ import UIKit
 import QuizeEngine
 
 protocol ViewControllerFactory {
-    func questionViewController(for question: String,
+    func questionViewController(for question: QuestionType<String>,
                                 answerCallback: @escaping (String)-> Void)-> UIViewController
+    func resultViewController(for result: QuizResult<QuestionType<String>, String>)-> UIViewController
 }
 
 class NavigationControllerRouter: Router {
-    typealias Question = String
+    typealias Question = QuestionType<String>
     typealias Answer = String
     
     let navigationController: UINavigationController
@@ -26,8 +27,21 @@ class NavigationControllerRouter: Router {
         self.factory = factory
     }
     
-    func routeTo(question: String,
+    func routeTo(question: QuestionType<String>,
                  answerCallback: @escaping (String) -> Void) {
+        let questionVC = factory.questionViewController(for: question,
+                                                        answerCallback: answerCallback)
+        navigationController.pushViewController(questionVC, animated: true)
+    }
+    
+    func routeTo(result: QuizeEngine.QuizResult<QuestionType<String>, String>) {
+        let resultVC = factory.resultViewController(for: result)
+        navigationController.pushViewController(resultVC, animated: true)
+    }
+}
+
+
+
 //        let questionVC = Storyboards
 //            .main
 //            .instantiateViewController(identifier: QuestionVC.storyboardID) { coder in
@@ -35,18 +49,11 @@ class NavigationControllerRouter: Router {
 //                           options: [],
 //                           coder: coder)
 //            }
-        let questionVC = factory.questionViewController(for: question,
-                                                        answerCallback: answerCallback)
-        navigationController.pushViewController(questionVC, animated: true)
-    }
-    
-    func routeTo(result: QuizeEngine.QuizResult<String, String>) {
-        let resultVC = Storyboards
-            .main
-            .instantiateViewController(identifier: ResultVC.storyboardID) { coder in
-                ResultVC(summary: "Hello",
-                         answers: [],
-                         coder: coder)
-            }
-    }
-}
+
+//        let resultVC = Storyboards
+//            .main
+//            .instantiateViewController(identifier: ResultVC.storyboardID) { coder in
+//                ResultVC(summary: "Hello",
+//                         answers: [],
+//                         coder: coder)
+//            }
