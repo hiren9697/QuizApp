@@ -7,7 +7,7 @@
 
 import XCTest
 @testable import QuizeApp
-import QuizeEngine
+@testable import QuizeEngine
 
 final class NavigationControllerRouterTest: XCTestCase {
     let navigationController = NoAnimationNavigationController()
@@ -97,10 +97,3 @@ final class NavigationControllerRouterTest: XCTestCase {
     }
 }
 
-private extension QuizResult {
-    
-    init(answers: [Question: Answer], score: Int) {
-        self.answers = answers
-        self.score = score
-    }
-}
