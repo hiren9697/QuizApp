@@ -34,7 +34,11 @@
 		878A64912AB7523100B3E3A5 /* NavigationControllerRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878A64902AB7523100B3E3A5 /* NavigationControllerRouter.swift */; };
 		878A64932AB7529C00B3E3A5 /* Storyboards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878A64922AB7529C00B3E3A5 /* Storyboards.swift */; };
 		878A64952AB7530000B3E3A5 /* ParentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878A64942AB7530000B3E3A5 /* ParentVC.swift */; };
+		87CD9ABE2ABA886A005D5409 /* iOSViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CD9ABD2ABA886A005D5409 /* iOSViewControllerFactory.swift */; };
+		87CD9AC02ABA8972005D5409 /* iOSViewControllerFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CD9ABF2ABA8972005D5409 /* iOSViewControllerFactoryTests.swift */; };
 		87D355562AB9FB310063DFA5 /* ViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D355552AB9FB310063DFA5 /* ViewControllerFactory.swift */; };
+		87D3555C2ABA00B00063DFA5 /* ViewControllerFactoryStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D3555B2ABA00B00063DFA5 /* ViewControllerFactoryStub.swift */; };
+		87D3555E2ABA00E00063DFA5 /* NoAnimationNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D3555D2ABA00E00063DFA5 /* NoAnimationNavigationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,7 +104,11 @@
 		878A64902AB7523100B3E3A5 /* NavigationControllerRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationControllerRouter.swift; sourceTree = "<group>"; };
 		878A64922AB7529C00B3E3A5 /* Storyboards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboards.swift; sourceTree = "<group>"; };
 		878A64942AB7530000B3E3A5 /* ParentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentVC.swift; sourceTree = "<group>"; };
+		87CD9ABD2ABA886A005D5409 /* iOSViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSViewControllerFactory.swift; sourceTree = "<group>"; };
+		87CD9ABF2ABA8972005D5409 /* iOSViewControllerFactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSViewControllerFactoryTests.swift; sourceTree = "<group>"; };
 		87D355552AB9FB310063DFA5 /* ViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerFactory.swift; sourceTree = "<group>"; };
+		87D3555B2ABA00B00063DFA5 /* ViewControllerFactoryStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerFactoryStub.swift; sourceTree = "<group>"; };
+		87D3555D2ABA00E00063DFA5 /* NoAnimationNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoAnimationNavigationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +189,9 @@
 				878A641D2AB5BAFF00B3E3A5 /* ResultVCTests.swift */,
 				878A648D2AB7521000B3E3A5 /* NavigationControllerRouterTest.swift */,
 				873C72EF2AB7755300D400EC /* QuestionTypeTests.swift */,
+				87D3555B2ABA00B00063DFA5 /* ViewControllerFactoryStub.swift */,
+				87D3555D2ABA00E00063DFA5 /* NoAnimationNavigationController.swift */,
+				87CD9ABF2ABA8972005D5409 /* iOSViewControllerFactoryTests.swift */,
 			);
 			path = QuizeAppTests;
 			sourceTree = "<group>";
@@ -299,6 +310,7 @@
 			isa = PBXGroup;
 			children = (
 				87D355552AB9FB310063DFA5 /* ViewControllerFactory.swift */,
+				87CD9ABD2ABA886A005D5409 /* iOSViewControllerFactory.swift */,
 			);
 			path = Factory;
 			sourceTree = "<group>";
@@ -440,6 +452,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				878A64382AB5D1F800B3E3A5 /* PresentableAnswer.swift in Sources */,
+				87CD9ABE2ABA886A005D5409 /* iOSViewControllerFactory.swift in Sources */,
 				87D355562AB9FB310063DFA5 /* ViewControllerFactory.swift in Sources */,
 				878A64182AB563FF00B3E3A5 /* QuestionVC.swift in Sources */,
 				878A64912AB7523100B3E3A5 /* NavigationControllerRouter.swift in Sources */,
@@ -460,8 +473,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87D3555C2ABA00B00063DFA5 /* ViewControllerFactoryStub.swift in Sources */,
+				87CD9AC02ABA8972005D5409 /* iOSViewControllerFactoryTests.swift in Sources */,
 				878A641E2AB5BAFF00B3E3A5 /* ResultVCTests.swift in Sources */,
 				873C72F02AB7755300D400EC /* QuestionTypeTests.swift in Sources */,
+				87D3555E2ABA00E00063DFA5 /* NoAnimationNavigationController.swift in Sources */,
 				878A641A2AB5683A00B3E3A5 /* QuestionVCTests.swift in Sources */,
 				878A648E2AB7521000B3E3A5 /* NavigationControllerRouterTest.swift in Sources */,
 			);
