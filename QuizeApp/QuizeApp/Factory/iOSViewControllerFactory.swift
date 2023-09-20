@@ -15,7 +15,7 @@ class iOSViewControllerFactory: ViewControllerFactory {
         self.options = options
     }
     
-    func questionViewController(for question: QuestionType<String>, answerCallback: @escaping (String) -> Void) -> UIViewController {
+    func questionViewController(for question: QuestionType<String>, answerCallback: @escaping ([String]) -> Void) -> UIViewController {
         let questionText: String
         switch question {
         case .singleAnswer(let questionTextValue): questionText = questionTextValue
@@ -28,7 +28,7 @@ class iOSViewControllerFactory: ViewControllerFactory {
         }
     }
     
-    func resultViewController(for result: QuizeEngine.QuizResult<QuestionType<String>, String>) -> UIViewController {
+    func resultViewController(for result: QuizeEngine.QuizResult<QuestionType<String>, [String]>) -> UIViewController {
         UIViewController()
     }
 }

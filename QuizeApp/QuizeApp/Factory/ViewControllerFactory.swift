@@ -10,6 +10,6 @@ import QuizeEngine
 
 protocol ViewControllerFactory {
     func questionViewController(for question: QuestionType<String>,
-                                answerCallback: @escaping (String)-> Void)-> UIViewController
-    func resultViewController(for result: QuizResult<QuestionType<String>, String>)-> UIViewController
+                                answerCallback: @escaping ([String])-> Void)-> UIViewController
+    func resultViewController(for result: QuizResult<QuestionType<String>, [String]>)-> UIViewController
 }

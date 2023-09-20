@@ -11,25 +11,25 @@ import UIKit
 
 class ViewControllerFactoryStub: ViewControllerFactory {
     var stubedQuestions: [QuestionType<String>: UIViewController] = [:]
-    var stubedResults: Dictionary<QuizResult<QuestionType<String>, String>, UIViewController> = [:]
-    var answerCallbacks: [QuestionType<String>: (String)-> Void] = [:]
+    var stubedResults: Dictionary<QuizResult<QuestionType<String>, [String]>, UIViewController> = [:]
+    var answerCallbacks: [QuestionType<String>: ([String])-> Void] = [:]
     
     // Stub methods
     func stub(question: QuestionType<String>,
               with viewController: UIViewController) {
         stubedQuestions[question] = viewController
     }
-    func stub(result: QuizResult<QuestionType<String>, String>,
+    func stub(result: QuizResult<QuestionType<String>, [String]>,
               with viewController: UIViewController) {
         stubedResults[result] = viewController
     }
     // Factory methods
     func questionViewController(for question: QuestionType<String>,
-                                answerCallback: @escaping (String) -> Void) -> UIViewController {
+                                answerCallback: @escaping ([String]) -> Void) -> UIViewController {
         answerCallbacks[question] = answerCallback
         return stubedQuestions[question]!
     }
-    func resultViewController(for result: QuizResult<QuestionType<String>, String>) -> UIViewController {
+    func resultViewController(for result: QuizResult<QuestionType<String>, [String]>) -> UIViewController {
         return stubedResults[result]!
     }
 }

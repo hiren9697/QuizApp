@@ -10,7 +10,7 @@ import QuizeEngine
 
 class NavigationControllerRouter: Router {
     typealias Question = QuestionType<String>
-    typealias Answer = String
+    typealias Answer = [String]
     
     let navigationController: UINavigationController
     let factory: ViewControllerFactory
@@ -22,13 +22,13 @@ class NavigationControllerRouter: Router {
     }
     
     func routeTo(question: QuestionType<String>,
-                 answerCallback: @escaping (String) -> Void) {
+                 answerCallback: @escaping ([String]) -> Void) {
         let questionVC = factory.questionViewController(for: question,
                                                         answerCallback: answerCallback)
         navigationController.pushViewController(questionVC, animated: true)
     }
     
-    func routeTo(result: QuizeEngine.QuizResult<QuestionType<String>, String>) {
+    func routeTo(result: QuizeEngine.QuizResult<QuestionType<String>, [String]>) {
         let resultVC = factory.resultViewController(for: result)
         navigationController.pushViewController(resultVC, animated: true)
     }

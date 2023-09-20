@@ -39,7 +39,7 @@ final class NavigationControllerRouterTest: XCTestCase {
                     answerCallback: { _ in
             wasCallbackFired = true
         })
-        factory.answerCallbacks[QuestionType.singleAnswer("Q1")]!("anything")
+        factory.answerCallbacks[QuestionType.singleAnswer("Q1")]!(["anything"])
         XCTAssertTrue(wasCallbackFired)
     }
     
@@ -47,8 +47,8 @@ final class NavigationControllerRouterTest: XCTestCase {
         // Configure
         let firstVC = UIViewController()
         let secondVC = UIViewController()
-        let firstResult = QuizResult(answers: [QuestionType.singleAnswer("Q1"): "A1"], score: 0)
-        let secondResult = QuizResult(answers: [QuestionType.singleAnswer("Q2"): "A2"], score: 1)
+        let firstResult = QuizResult(answers: [QuestionType.singleAnswer("Q1"): ["A1"]], score: 0)
+        let secondResult = QuizResult(answers: [QuestionType.singleAnswer("Q2"): ["A2"]], score: 1)
         // Stub
         factory.stub(result: firstResult, with: firstVC)
         factory.stub(result: secondResult, with: secondVC)

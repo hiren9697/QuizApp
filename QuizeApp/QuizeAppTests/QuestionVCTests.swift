@@ -69,11 +69,16 @@ final class QuestionVCTests: XCTestCase {
 private extension QuestionVCTests {
     private func makeSUT(question: String = "",
                          options: [String] = [])-> QuestionVC {
-        let vc = Storyboards
-            .main
-            .instantiateViewController(identifier: QuestionVC.storyboardID) { coder in
-                return QuestionVC(question: question, options: options, coder: coder)!
-            }
+        let question = QuestionType.singleAnswer(question)
+        let optionDictionary = [question: options]
+        let factory = iOSViewControllerFactory(options: optionDictionary)
+        let vc = factory.questionViewController(for: question,
+                                                answerCallback: { _  in }) as! QuestionVC
+//        let vc = Storyboards
+//            .main
+//            .instantiateViewController(identifier: QuestionVC.storyboardID) { coder in
+//                return QuestionVC(question: question, options: options, coder: coder)!
+//            }
         _ = vc.view
         return vc
     }
