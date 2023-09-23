@@ -31,7 +31,6 @@ final class QuestionVCTests: XCTestCase {
     }
     
     func test_viewDidLoad_optionSelection() {
-        var receivedAnswers: [String]
         // 1. With one option
         let sut1 = makeSUT(options: ["O1"])
         sut1.tableView.selectRow(at: IndexPath(row: 0, section: 0),
@@ -70,16 +69,21 @@ final class QuestionVCTests: XCTestCase {
 private extension QuestionVCTests {
     private func makeSUT(question: String = "",
                          options: [String] = [])-> QuestionVC {
+        // To test VC with Factory
+        /*
         let question = QuestionType.singleAnswer(question)
         let optionDictionary = [question: options]
         let factory = iOSViewControllerFactory(options: optionDictionary)
         let vc = factory.questionViewController(for: question,
                                                 answerCallback: { _  in }) as! QuestionVC
-//        let vc = Storyboards
-//            .main
-//            .instantiateViewController(identifier: QuestionVC.storyboardID) { coder in
-//                return QuestionVC(question: question, options: options, coder: coder)!
-//            }
+         */
+        let vc = Storyboards
+            .main
+            .instantiateViewController(identifier: QuestionVC.storyboardID) { coder in
+                return QuestionVC(question: question,
+                                  options: options,
+                                  selection: { _ in }, coder: coder)!
+            }
         _ = vc.view
         return vc
     }

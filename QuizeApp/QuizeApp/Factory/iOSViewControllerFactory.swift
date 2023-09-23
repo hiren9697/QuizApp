@@ -17,17 +17,48 @@ class iOSViewControllerFactory: ViewControllerFactory {
     
     func questionViewController(for question: QuestionType<String>,
                                 answerCallback: @escaping ([String]) -> Void) -> UIViewController {
-        let questionText: String
+        guard let questionOptions = options[question] else {
+            fatalError("Couldn't find options for question: \(question)")
+        }
         switch question {
-        case .singleAnswer(let questionTextValue): questionText = questionTextValue
-        case .multiAnswer(let questionTextValue): questionText = questionTextValue
+        case .singleAnswer(let questionTextValue):
+            let vc = instantiateQuestionVC(questionText: questionTextValue,
+                                           options: questionOptions,
+                                           allowMultipleSelection: false,
+                                           selection: answerCallback)
+            return vc
+        case .multiAnswer(let questionTextValue):
+            let vc = instantiateQuestionVC(questionText: questionTextValue,
+                                           options: questionOptions,
+                                           allowMultipleSelection: true,
+                                           selection: answerCallback)
+            return vc
         }
-        return Storyboards.main.instantiateViewController(identifier: QuestionVC.storyboardID) { coder in
-            QuestionVC(question: questionText,
-                       options: self.options[question]!,
-                       selection: answerCallback,
-                       coder: coder) ?? UIViewController()
+    }
+    
+    func instantiateQuestionVC(questionText: String,
+                               options: [String],
+                               allowMultipleSelection: Bool,
+                               selection: @escaping ([String])-> Void)-> QuestionVC {
+        // Initialize ViewController
+        let vc = Storyboards.main.instantiateViewController(identifier: QuestionVC.storyboardID) { coder in
+            let vc = QuestionVC(question: questionText,
+                                options: options,
+                                selection: selection,
+                                coder: coder)
+            guard let vc = vc else {
+                fatalError("Couldn't instantiate QuestionVC for questionText: \(questionText), options: \(options), allowMultipleSelection: \(allowMultipleSelection), selection: \(String(describing: selection))")
+            }
+            return vc
         }
+        // Downcast UIViewController to QuestionVC
+        guard let questionVC = vc as? QuestionVC else {
+            fatalError("Initiated view controller is not QuestionVC")
+        }
+        // Cinfigure QuestionVC
+        _ = questionVC.view
+        questionVC.tableView.allowsMultipleSelection = allowMultipleSelection
+        return questionVC
     }
     
     func resultViewController(for result: QuizeEngine.QuizResult<QuestionType<String>, [String]>) -> UIViewController {
