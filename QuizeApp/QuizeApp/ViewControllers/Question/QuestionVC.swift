@@ -14,10 +14,15 @@ class QuestionVC: ParentVC {
     
     let question: String
     let options: [String]
+    let selection: ([String])-> Void
     
-    init?(question: String, options: [String], coder: NSCoder) {
+    init?(question: String,
+          options: [String],
+          selection: @escaping ([String])-> Void,
+          coder: NSCoder) {
         self.question = question
         self.options = options
+        self.selection = selection
         super.init(coder: coder)
     }
     
@@ -32,6 +37,14 @@ class QuestionVC: ParentVC {
     }
 }
 
+// MARK: - IBAction(s)
+extension QuestionVC {
+    
+    @IBAction func btnSubmitTap() {
+        submitSelectedOptions()
+    }
+}
+
 // MARK: - Helper method(s)
 extension QuestionVC {
     
@@ -41,6 +54,11 @@ extension QuestionVC {
         tableView.register(QuestionOptionTC.nib,
                            forCellReuseIdentifier: QuestionOptionTC.reuseIdentifier)
         tableView.reloadData()
+    }
+    
+    private func submitSelectedOptions() {
+        let selectedAnswer: [String] = tableView.indexPathsForSelectedRows?.map { options[$0.row] } ?? []
+        selection(selectedAnswer)
     }
 }
 

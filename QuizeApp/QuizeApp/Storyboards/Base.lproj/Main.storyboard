@@ -43,7 +43,19 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Ufz-Jm-YwA" secondAttribute="trailing" id="sQ5-gc-akH"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="llX-nA-Oty"/>
+                    <navigationItem key="navigationItem" id="llX-nA-Oty">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="daD-oM-myo">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="9Rk-32-okB">
+                                <rect key="frame" x="290" y="5.6666666666666679" width="87" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Submit"/>
+                            </button>
+                            <connections>
+                                <action selector="btnSubmitTap" destination="BYZ-38-t0r" id="3X7-r8-bV8"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="lblHeader" destination="lf4-Dv-1eS" id="zAu-hW-ySl"/>
                         <outlet property="tableView" destination="Ufz-Jm-YwA" id="1VX-qk-cnO"/>

@@ -54,6 +54,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             .instantiateViewController(identifier: QuestionVC.storyboardID) { coder in
                 QuestionVC(question: "Q1",
                            options: ["O1", "O2", "O3"],
+                           selection: { _ in },
                            coder: coder)!
             }
         let navigationVC = UINavigationController(rootViewController: questionVC)

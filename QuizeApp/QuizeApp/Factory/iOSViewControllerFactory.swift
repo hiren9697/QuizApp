@@ -15,7 +15,8 @@ class iOSViewControllerFactory: ViewControllerFactory {
         self.options = options
     }
     
-    func questionViewController(for question: QuestionType<String>, answerCallback: @escaping ([String]) -> Void) -> UIViewController {
+    func questionViewController(for question: QuestionType<String>,
+                                answerCallback: @escaping ([String]) -> Void) -> UIViewController {
         let questionText: String
         switch question {
         case .singleAnswer(let questionTextValue): questionText = questionTextValue
@@ -24,6 +25,7 @@ class iOSViewControllerFactory: ViewControllerFactory {
         return Storyboards.main.instantiateViewController(identifier: QuestionVC.storyboardID) { coder in
             QuestionVC(question: questionText,
                        options: self.options[question]!,
+                       selection: answerCallback,
                        coder: coder) ?? UIViewController()
         }
     }

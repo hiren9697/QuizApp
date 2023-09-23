@@ -31,6 +31,7 @@ final class QuestionVCTests: XCTestCase {
     }
     
     func test_viewDidLoad_optionSelection() {
+        var receivedAnswers: [String]
         // 1. With one option
         let sut1 = makeSUT(options: ["O1"])
         sut1.tableView.selectRow(at: IndexPath(row: 0, section: 0),
