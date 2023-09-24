@@ -41,6 +41,8 @@
 		87D3555E2ABA00E00063DFA5 /* NoAnimationNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D3555D2ABA00E00063DFA5 /* NoAnimationNavigationController.swift */; };
 		87D665F92ABF2A1200F46656 /* ResultPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D665F82ABF2A1200F46656 /* ResultPresenter.swift */; };
 		87D665FB2ABF300100F46656 /* ResutPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D665FA2ABF300100F46656 /* ResutPresenterTests.swift */; };
+		87D665FD2AC00B0D00F46656 /* QuestionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D665FC2AC00B0D00F46656 /* QuestionPresenter.swift */; };
+		87D665FF2AC00B8E00F46656 /* QuestionPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D665FE2AC00B8E00F46656 /* QuestionPresenterTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +115,8 @@
 		87D3555D2ABA00E00063DFA5 /* NoAnimationNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoAnimationNavigationController.swift; sourceTree = "<group>"; };
 		87D665F82ABF2A1200F46656 /* ResultPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultPresenter.swift; sourceTree = "<group>"; };
 		87D665FA2ABF300100F46656 /* ResutPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResutPresenterTests.swift; sourceTree = "<group>"; };
+		87D665FC2AC00B0D00F46656 /* QuestionPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionPresenter.swift; sourceTree = "<group>"; };
+		87D665FE2AC00B8E00F46656 /* QuestionPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionPresenterTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,6 +202,7 @@
 				87D3555D2ABA00E00063DFA5 /* NoAnimationNavigationController.swift */,
 				87CD9ABF2ABA8972005D5409 /* iOSViewControllerFactoryTests.swift */,
 				87D665FA2ABF300100F46656 /* ResutPresenterTests.swift */,
+				87D665FE2AC00B8E00F46656 /* QuestionPresenterTests.swift */,
 			);
 			path = QuizeAppTests;
 			sourceTree = "<group>";
@@ -325,6 +330,7 @@
 			isa = PBXGroup;
 			children = (
 				87D665F82ABF2A1200F46656 /* ResultPresenter.swift */,
+				87D665FC2AC00B0D00F46656 /* QuestionPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -467,6 +473,7 @@
 			files = (
 				878A64382AB5D1F800B3E3A5 /* PresentableAnswer.swift in Sources */,
 				87CD9ABE2ABA886A005D5409 /* iOSViewControllerFactory.swift in Sources */,
+				87D665FD2AC00B0D00F46656 /* QuestionPresenter.swift in Sources */,
 				87D355562AB9FB310063DFA5 /* ViewControllerFactory.swift in Sources */,
 				878A64182AB563FF00B3E3A5 /* QuestionVC.swift in Sources */,
 				878A64912AB7523100B3E3A5 /* NavigationControllerRouter.swift in Sources */,
@@ -492,6 +499,7 @@
 				87CD9AC02ABA8972005D5409 /* iOSViewControllerFactoryTests.swift in Sources */,
 				87D665FB2ABF300100F46656 /* ResutPresenterTests.swift in Sources */,
 				878A641E2AB5BAFF00B3E3A5 /* ResultVCTests.swift in Sources */,
+				87D665FF2AC00B8E00F46656 /* QuestionPresenterTests.swift in Sources */,
 				873C72F02AB7755300D400EC /* QuestionTypeTests.swift in Sources */,
 				87D3555E2ABA00E00063DFA5 /* NoAnimationNavigationController.swift in Sources */,
 				878A641A2AB5683A00B3E3A5 /* QuestionVCTests.swift in Sources */,
