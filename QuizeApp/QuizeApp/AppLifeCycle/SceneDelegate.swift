@@ -55,6 +55,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 QuestionVC(title: "Question #",
                            question: "Q1",
                            options: ["O1", "O2", "O3"],
+                           allowMultipleSelection: true,
                            selection: { _ in },
                            coder: coder)!
             }

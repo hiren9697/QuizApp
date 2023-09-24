@@ -14,15 +14,18 @@ class QuestionVC: ParentVC {
     
     let question: String
     let options: [String]
+    let allowMultipleSelection: Bool
     let selection: ([String])-> Void
     
     init?(title: String,
           question: String,
           options: [String],
+          allowMultipleSelection: Bool,
           selection: @escaping ([String])-> Void,
           coder: NSCoder) {
         self.question = question
         self.options = options
+        self.allowMultipleSelection = allowMultipleSelection
         self.selection = selection
         super.init(coder: coder)
         self.title = title
@@ -53,7 +56,7 @@ extension QuestionVC {
     private func setupUI() {
         navigationItem.title = title
         lblHeader.text = question
-        tableView.allowsMultipleSelection = true
+        tableView.allowsMultipleSelection = allowMultipleSelection
         tableView.register(QuestionOptionTC.nib,
                            forCellReuseIdentifier: QuestionOptionTC.reuseIdentifier)
         tableView.reloadData()

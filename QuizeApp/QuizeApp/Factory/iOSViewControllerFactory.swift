@@ -54,6 +54,7 @@ class iOSViewControllerFactory: ViewControllerFactory {
             let vc = QuestionVC(title: title,
                                 question: questionText,
                                 options: options,
+                                allowMultipleSelection: allowMultipleSelection,
                                 selection: selection,
                                 coder: coder)
             guard let vc = vc else {
@@ -67,7 +68,6 @@ class iOSViewControllerFactory: ViewControllerFactory {
         }
         // Cinfigure QuestionVC
         _ = questionVC.view
-        questionVC.tableView.allowsMultipleSelection = allowMultipleSelection
         return questionVC
     }
     

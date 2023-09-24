@@ -39,7 +39,7 @@ final class QuestionVCTests: XCTestCase {
         XCTAssertEqual(sut1.tableView.indexPathsForSelectedRows, [IndexPath(row: 0, section: 0)])
         
         // 1. With two option
-        let sut2 = makeSUT(options: ["O1", "O2", "O3"])
+        let sut2 = makeSUT(options: ["O1", "O2", "O3"], allowMultipleSelection: true)
         // Select first option
         sut2.tableView.selectRow(at: IndexPath(row: 0, section: 0),
                                  animated: false,
@@ -68,7 +68,8 @@ final class QuestionVCTests: XCTestCase {
 // MARK: - Helper method(s)
 private extension QuestionVCTests {
     private func makeSUT(question: String = "",
-                         options: [String] = [])-> QuestionVC {
+                         options: [String] = [],
+                         allowMultipleSelection: Bool = false)-> QuestionVC {
         // To test VC with Factory
         /*
         let question = QuestionType.singleAnswer(question)
@@ -83,6 +84,7 @@ private extension QuestionVCTests {
                 return QuestionVC(title: "Question #",
                                   question: question,
                                   options: options,
+                                  allowMultipleSelection: allowMultipleSelection,
                                   selection: { _ in }, coder: coder)!
             }
         _ = vc.view
