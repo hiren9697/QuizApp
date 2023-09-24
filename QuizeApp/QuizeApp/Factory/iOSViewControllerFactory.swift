@@ -9,9 +9,12 @@ import UIKit
 import QuizeEngine
 
 class iOSViewControllerFactory: ViewControllerFactory {
+    let questions: [QuestionType<String>]
     let options: Dictionary<QuestionType<String>, [String]>
     
-    init(options: Dictionary<QuestionType<String>, [String]>) {
+    init(questions: [QuestionType<String>],
+         options: Dictionary<QuestionType<String>, [String]>) {
+        self.questions = questions
         self.options = options
     }
     
@@ -20,15 +23,20 @@ class iOSViewControllerFactory: ViewControllerFactory {
         guard let questionOptions = options[question] else {
             fatalError("Couldn't find options for question: \(question)")
         }
+        // Question Presenter
+        let questionPresenter = QuestionPresenter(questions: questions,
+                                                  question: question)
         switch question {
         case .singleAnswer(let questionTextValue):
-            let vc = instantiateQuestionVC(questionText: questionTextValue,
+            let vc = instantiateQuestionVC(title: questionPresenter.title,
+                                           questionText: questionTextValue,
                                            options: questionOptions,
                                            allowMultipleSelection: false,
                                            selection: answerCallback)
             return vc
         case .multiAnswer(let questionTextValue):
-            let vc = instantiateQuestionVC(questionText: questionTextValue,
+            let vc = instantiateQuestionVC(title: questionPresenter.title,
+                                           questionText: questionTextValue,
                                            options: questionOptions,
                                            allowMultipleSelection: true,
                                            selection: answerCallback)
@@ -36,13 +44,15 @@ class iOSViewControllerFactory: ViewControllerFactory {
         }
     }
     
-    func instantiateQuestionVC(questionText: String,
+    func instantiateQuestionVC(title: String,
+                               questionText: String,
                                options: [String],
                                allowMultipleSelection: Bool,
                                selection: @escaping ([String])-> Void)-> QuestionVC {
         // Initialize ViewController
         let vc = Storyboards.main.instantiateViewController(identifier: QuestionVC.storyboardID) { coder in
-            let vc = QuestionVC(question: questionText,
+            let vc = QuestionVC(title: title,
+                                question: questionText,
                                 options: options,
                                 selection: selection,
                                 coder: coder)

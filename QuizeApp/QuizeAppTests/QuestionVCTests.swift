@@ -80,7 +80,8 @@ private extension QuestionVCTests {
         let vc = Storyboards
             .main
             .instantiateViewController(identifier: QuestionVC.storyboardID) { coder in
-                return QuestionVC(question: question,
+                return QuestionVC(title: "Question #",
+                                  question: question,
                                   options: options,
                                   selection: { _ in }, coder: coder)!
             }

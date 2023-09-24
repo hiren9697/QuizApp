@@ -16,7 +16,8 @@ class QuestionVC: ParentVC {
     let options: [String]
     let selection: ([String])-> Void
     
-    init?(question: String,
+    init?(title: String,
+          question: String,
           options: [String],
           selection: @escaping ([String])-> Void,
           coder: NSCoder) {
@@ -24,6 +25,7 @@ class QuestionVC: ParentVC {
         self.options = options
         self.selection = selection
         super.init(coder: coder)
+        self.title = title
     }
     
     @available(*, unavailable, renamed: "init(question:options:coder:)")
@@ -49,6 +51,7 @@ extension QuestionVC {
 extension QuestionVC {
     
     private func setupUI() {
+        navigationItem.title = title
         lblHeader.text = question
         tableView.allowsMultipleSelection = true
         tableView.register(QuestionOptionTC.nib,

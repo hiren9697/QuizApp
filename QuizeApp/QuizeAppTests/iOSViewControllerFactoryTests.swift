@@ -10,13 +10,28 @@ import QuizeEngine
 @testable import QuizeApp
 
 final class iOSViewControllerFactoryTests: XCTestCase {
+    let firstQuestion = QuestionType.singleAnswer("Q1")
+    let secondQuestion = QuestionType.multiAnswer("Q2")
+    
+    func test_title() {
+        let sut = makeSUT(questions: [firstQuestion, secondQuestion],
+                          options: [firstQuestion: ["A1", "A2"],
+                                   secondQuestion: ["A1", "A2"]])
+        let firstQuestionVC = sut.questionViewController(for: firstQuestion,
+                                                    answerCallback: { _ in })
+        XCTAssertEqual(firstQuestionVC.title, "Question #1")
+        let secondQuestionVC = sut.questionViewController(for: secondQuestion,
+                                                          answerCallback: { _ in })
+        XCTAssertEqual(secondQuestionVC.title, "Question #2")
+    }
     
     func test_questionVCWithSingleAnswerQuestion_createsController_withQuestionOptionsAndSingleSelection() {
         // Configure
         let question = QuestionType.singleAnswer("Q1")
         let questionOptions = ["O1", "O2"]
         let options = [question: questionOptions]
-        let sut = makeSUT(options: options)
+        let sut = makeSUT(questions: [firstQuestion, secondQuestion],
+                          options: options)
         let controller = sut.questionViewController(for: question, answerCallback: { _ in }) as? QuestionVC
         // Test
         XCTAssertNotNil(controller)
@@ -30,7 +45,8 @@ final class iOSViewControllerFactoryTests: XCTestCase {
         let question = QuestionType.multiAnswer("Q1")
         let questionOptions = ["O1", "O2"]
         let options = [question: questionOptions]
-        let sut = makeSUT(options: options)
+        let sut = makeSUT(questions: [firstQuestion, secondQuestion],
+                          options: options)
         let controller = sut.questionViewController(for: question, answerCallback: { _ in }) as? QuestionVC
         // Test
         XCTAssertNotNil(controller)
@@ -40,7 +56,9 @@ final class iOSViewControllerFactoryTests: XCTestCase {
     }
     
     // MARK: - Helper method(s)
-    func makeSUT(options: Dictionary<QuestionType<String>, [String]>)-> iOSViewControllerFactory {
-        return iOSViewControllerFactory(options: options)
+    func makeSUT(questions: [QuestionType<String>],
+                 options: Dictionary<QuestionType<String>, [String]>)-> iOSViewControllerFactory {
+        return iOSViewControllerFactory(questions: questions,
+                                        options: options)
     }
 }

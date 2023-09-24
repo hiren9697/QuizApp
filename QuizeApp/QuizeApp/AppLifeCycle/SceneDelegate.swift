@@ -52,7 +52,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func getDummyQuestionVC() {
         let questionVC = UIStoryboard(name: "Main", bundle: Bundle.main)
             .instantiateViewController(identifier: QuestionVC.storyboardID) { coder in
-                QuestionVC(question: "Q1",
+                QuestionVC(title: "Question #",
+                           question: "Q1",
                            options: ["O1", "O2", "O3"],
                            selection: { _ in },
                            coder: coder)!
