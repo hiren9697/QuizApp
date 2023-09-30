@@ -11,11 +11,14 @@ import QuizeEngine
 class iOSViewControllerFactory: ViewControllerFactory {
     let questions: [QuestionType<String>]
     let options: Dictionary<QuestionType<String>, [String]>
+    let correctAnswers: Dictionary<QuestionType<String>, [String]>
     
     init(questions: [QuestionType<String>],
-         options: Dictionary<QuestionType<String>, [String]>) {
+         options: Dictionary<QuestionType<String>, [String]>,
+         correctAnswers: Dictionary<QuestionType<String>, [String]>) {
         self.questions = questions
         self.options = options
+        self.correctAnswers = correctAnswers
     }
     
     func questionViewController(for question: QuestionType<String>,
@@ -72,6 +75,25 @@ class iOSViewControllerFactory: ViewControllerFactory {
     }
     
     func resultViewController(for result: QuizeEngine.QuizResult<QuestionType<String>, [String]>) -> UIViewController {
-        UIViewController()
+        let presenter = ResultPresenter(result: result,
+                                        correctAnswers: correctAnswers,
+                                        orderedQuestions: questions)
+        // Initialize ViewController
+        let vc = Storyboards.main.instantiateViewController(identifier: ResultVC.storyboardID) { coder in
+            let vc = ResultVC(summary: presenter.summary,
+                              answers: presenter.presentableAnswers,
+                              coder: coder)
+            guard let vc = vc else {
+                fatalError("Couldn't instantiate QuestionVC for result: \(result)")
+            }
+            return vc
+        }
+        // Downcast UIViewController to ResultVC
+        guard let resultVC = vc as? ResultVC else {
+            fatalError("Initiated view controller is not QuestionVC")
+        }
+        // Cinfigure QuestionVC
+        //_ = questionVC.view
+        return resultVC
     }
 }

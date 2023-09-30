@@ -77,6 +77,24 @@ final class NavigationControllerRouterTest: XCTestCase {
         XCTAssertTrue(submitButton.isEnabled)
     }
     
+    func test_submitButton_firesCallback_onPress() {
+        var receivedAnswers: [String]?
+        let firstVC = UIViewController()
+        factory.stub(question: QuestionType.singleAnswer("Q1"), with: firstVC)
+        sut.routeTo(question: QuestionType.singleAnswer("Q1"),
+                    answerCallback: { answers in receivedAnswers = answers  })
+        let submitButton = firstVC.navigationItem.rightBarButtonItem!
+        // Enable button by selecting option
+        let callback = factory.answerCallbacks[QuestionType.singleAnswer("Q1")]!
+        callback(["A1"])
+        // Press button
+        submitButton.target!.performSelector(onMainThread: submitButton.action!,
+                                             with: nil,
+                                             waitUntilDone: true)
+        // Check callback fired
+        XCTAssertEqual(receivedAnswers, ["A1"])
+    }
+    
     func test_routeToResult_presentsResultVC() {
         // Configure
         let firstVC = UIViewController()
