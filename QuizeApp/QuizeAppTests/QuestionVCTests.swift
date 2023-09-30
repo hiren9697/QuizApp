@@ -30,6 +30,11 @@ final class QuestionVCTests: XCTestCase {
         XCTAssertEqual(makeSUT(options: ["O1", "O2", "O3"]).tableView.getOptionText(at: 2), "O3")
     }
     
+    func test_viewDidLoad_tableViewConfiguration() {
+        XCTAssertEqual(makeSUT(allowMultipleSelection: true).tableView.allowsMultipleSelection, true)
+        XCTAssertEqual(makeSUT(allowMultipleSelection: false).tableView.allowsMultipleSelection, false)
+    }
+    
     func test_viewDidLoad_optionSelection() {
         // 1. With one option
         let sut1 = makeSUT(options: ["O1"])

@@ -67,7 +67,7 @@ class iOSViewControllerFactory: ViewControllerFactory {
             fatalError("Initiated view controller is not QuestionVC")
         }
         // Cinfigure QuestionVC
-        _ = questionVC.view
+        //_ = questionVC.view
         return questionVC
     }
     
