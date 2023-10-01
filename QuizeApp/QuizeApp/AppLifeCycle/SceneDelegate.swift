@@ -43,41 +43,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
     }
-    
-    func getDummyQuestionVC() {
-        let questionVC = UIStoryboard(name: "Main", bundle: Bundle.main)
-            .instantiateViewController(identifier: QuestionVC.storyboardID) { coder in
-                QuestionVC(title: "Question #",
-                           question: "Q1",
-                           options: ["O1", "O2", "O3"],
-                           allowMultipleSelection: true,
-                           selection: { _ in },
-                           coder: coder)!
-            }
-        let navigationVC = UINavigationController(rootViewController: questionVC)
-    }
-    
-    func getDummyResultVC()-> UIViewController {
-        let resultVC = UIStoryboard(name: "Main", bundle: Bundle.main)
-            .instantiateViewController(identifier: ResultVC.storyboardID) { coder in
-                ResultVC(summary: "Got 2 questions correct out of 4 questions",
-                         answers: [
-                            PresentableAnswer(question: "Q1",
-                                              answer: "A1"),
-                            PresentableAnswer(question: "Q2",
-                                              answer: "A1",
-                                              wrongAnswer: "A2"),
-                            PresentableAnswer(question: "Q3",
-                                              answer: "A2",
-                                              wrongAnswer: "A1"),
-                            PresentableAnswer(question: "Q4",
-                                              answer: "A2"),
-                         ],
-                         coder: coder)
-            }
-        let navigationVC = UINavigationController(rootViewController: resultVC)
-        return navigationVC
-    }
 }
 
 // MARK: - Helper method(s)
@@ -89,18 +54,25 @@ extension SceneDelegate {
         let option1_1 = "A.P.J. Abdul Kalam"
         let option1_2 = "Rajiv Gandhi"
         let option1_3 = "Mohammad Jina"
+        let secondQuestion = QuestionType.singleAnswer("What is capital of india?")
+        let option2_1 = "Delhi"
+        let option2_2 = "Jaipur"
+        let option2_3 = "Mumbai"
+        let option2_4 = "Bangaluru"
         /// 1.1 All questions
-        let allQuestions = [firstQuestion]
+        let allQuestions = [firstQuestion, secondQuestion]
         /// 1.2 Questions with options
         lazy var questionsWithOptions: Dictionary<QuestionType<String>, [String]> = {
             return [
-                firstQuestion: [option1_1, option1_2, option1_3]
+                firstQuestion: [option1_1, option1_2, option1_3],
+                secondQuestion: [option2_1, option2_2, option2_3, option2_4]
             ]
         }()
         /// 1.3 Correct answers
         lazy var correctAnswers: Dictionary<QuestionType<String>, [String]> = {
             return [
-                firstQuestion: [option1_1, option1_2]
+                firstQuestion: [option1_1, option1_2],
+                secondQuestion: [option1_1]
             ]
         }()
         
