@@ -80,4 +80,12 @@ extension QuestionVC: UITableViewDelegate, UITableViewDataSource {
         cell.lblOption.text = options[indexPath.row]
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        submitSelectedOptions()
+    }
+    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        submitSelectedOptions()
+    }
 }

@@ -45,21 +45,3 @@ class NavigationControllerRouter: Router {
         navigationController.pushViewController(resultVC, animated: true)
     }
 }
-
-
-
-//        let questionVC = Storyboards
-//            .main
-//            .instantiateViewController(identifier: QuestionVC.storyboardID) { coder in
-//                QuestionVC(question: question,
-//                           options: [],
-//                           coder: coder)
-//            }
-
-//        let resultVC = Storyboards
-//            .main
-//            .instantiateViewController(identifier: ResultVC.storyboardID) { coder in
-//                ResultVC(summary: "Hello",
-//                         answers: [],
-//                         coder: coder)
-//            }

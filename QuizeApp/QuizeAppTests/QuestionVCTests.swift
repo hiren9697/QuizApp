@@ -68,13 +68,46 @@ final class QuestionVCTests: XCTestCase {
                                    animated: false)
         XCTAssertEqual(sut2.tableView.indexPathsForSelectedRows, [IndexPath(row: 2, section: 0)])
     }
+    
+    func test_optionSelectionFiresSelectionCallback() {
+        // Configure
+        var selectedOptions: [String] = []
+        let sut = makeSUT(options: ["O1", "O2", "O3"],
+                          allowMultipleSelection: true,
+                          selection: { options in
+            selectedOptions = options
+        })
+        // 1. Select first option
+        sut.tableView.selectRow(at: IndexPath(row: 0, section: 0),
+                                animated: false,
+                                scrollPosition: .none)
+        sut.tableView.delegate?.tableView?(sut.tableView, didSelectRowAt: IndexPath(row: 0, section: 0))
+        XCTAssertEqual(selectedOptions, ["O1"])
+        // 2. Unselect first option
+        sut.tableView.deselectRow(at: IndexPath(row: 0, section: 0),
+                                  animated: false)
+        sut.tableView.delegate?.tableView?(sut.tableView, didDeselectRowAt: IndexPath(row: 0, section: 0))
+        XCTAssertEqual(selectedOptions, [])
+        // 3. Select second and third option
+        sut.tableView.selectRow(at: IndexPath(row: 1, section: 0),
+                                animated: false,
+                                scrollPosition: .none)
+        sut.tableView.delegate?.tableView?(sut.tableView, didSelectRowAt: IndexPath(row: 1, section: 0))
+        XCTAssertEqual(selectedOptions, ["O2"])
+        sut.tableView.selectRow(at: IndexPath(row: 2, section: 0),
+                                animated: false,
+                                scrollPosition: .none)
+        sut.tableView.delegate?.tableView?(sut.tableView, didSelectRowAt: IndexPath(row: 2, section: 0))
+        XCTAssertEqual(selectedOptions, ["O2", "O3"])
+    }
 }
 
 // MARK: - Helper method(s)
 private extension QuestionVCTests {
     private func makeSUT(question: String = "",
                          options: [String] = [],
-                         allowMultipleSelection: Bool = false)-> QuestionVC {
+                         allowMultipleSelection: Bool = false,
+                         selection: @escaping ([String])-> Void = { _ in })-> QuestionVC {
         // To test VC with Factory
         /*
         let question = QuestionType.singleAnswer(question)
@@ -90,7 +123,7 @@ private extension QuestionVCTests {
                                   question: question,
                                   options: options,
                                   allowMultipleSelection: allowMultipleSelection,
-                                  selection: { _ in }, coder: coder)!
+                                  selection: selection, coder: coder)!
             }
         _ = vc.view
         return vc
