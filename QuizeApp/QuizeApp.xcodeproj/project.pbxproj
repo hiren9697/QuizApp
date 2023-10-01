@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		872E35DC2AC84A7C002B4978 /* SubmitButtonController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872E35DB2AC84A7C002B4978 /* SubmitButtonController.swift */; };
 		873C72EC2AB7671300D400EC /* QuizeEngine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 873C72EB2AB7671300D400EC /* QuizeEngine.framework */; };
 		873C72ED2AB7671300D400EC /* QuizeEngine.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 873C72EB2AB7671300D400EC /* QuizeEngine.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		873C72F02AB7755300D400EC /* QuestionTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873C72EF2AB7755300D400EC /* QuestionTypeTests.swift */; };
@@ -78,6 +79,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		872E35DB2AC84A7C002B4978 /* SubmitButtonController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitButtonController.swift; sourceTree = "<group>"; };
 		873C72EB2AB7671300D400EC /* QuizeEngine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = QuizeEngine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		873C72EF2AB7755300D400EC /* QuestionTypeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionTypeTests.swift; sourceTree = "<group>"; };
 		873C72F12AB778BB00D400EC /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
@@ -316,6 +318,7 @@
 			isa = PBXGroup;
 			children = (
 				878A64902AB7523100B3E3A5 /* NavigationControllerRouter.swift */,
+				872E35DB2AC84A7C002B4978 /* SubmitButtonController.swift */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -483,6 +486,7 @@
 				878A642A2AB5CC7E00B3E3A5 /* ParentCells.swift in Sources */,
 				878A64932AB7529C00B3E3A5 /* Storyboards.swift in Sources */,
 				87D665F92ABF2A1200F46656 /* ResultPresenter.swift in Sources */,
+				872E35DC2AC84A7C002B4978 /* SubmitButtonController.swift in Sources */,
 				878A642C2AB5CC9F00B3E3A5 /* QuestionOptionTC.swift in Sources */,
 				878A641C2AB5A72900B3E3A5 /* ResultVC.swift in Sources */,
 				8744D4EE2AB2AA9D00F7C0DE /* AppDelegate.swift in Sources */,
