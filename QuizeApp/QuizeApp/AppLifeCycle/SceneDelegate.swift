@@ -6,19 +6,14 @@
 //
 
 import UIKit
+import QuizeEngine
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
-        // 1. Init initial view controller
-        let vc = getDummyResultVC()
-        // 2. Configure window
-        let window = UIWindow(windowScene: windowScene)
-        window.rootViewController = vc
-        self.window = window
-        window.makeKeyAndVisible()
+        startApp(windowScene: windowScene)
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -85,3 +80,50 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 }
 
+// MARK: - Helper method(s)
+extension SceneDelegate {
+    
+    private func startApp(windowScene: UIWindowScene) {
+        // 1. Questions
+        let firstQuestion = QuestionType.multiAnswer("Who are indians?")
+        let option1_1 = "A.P.J. Abdul Kalam"
+        let option1_2 = "Rajiv Gandhi"
+        let option1_3 = "Mohammad Jina"
+        /// 1.1 All questions
+        let allQuestions = [firstQuestion]
+        /// 1.2 Questions with options
+        lazy var questionsWithOptions: Dictionary<QuestionType<String>, [String]> = {
+            return [
+                firstQuestion: [option1_1, option1_2, option1_3]
+            ]
+        }()
+        /// 1.3 Correct answers
+        lazy var correctAnswers: Dictionary<QuestionType<String>, [String]> = {
+            return [
+                firstQuestion: [option1_1, option1_2]
+            ]
+        }()
+        
+        // 2. Router
+        /// 2.1 NavigationController
+        let navigationController = UINavigationController()
+        /// 2.2 Factory
+        let factory = iOSViewControllerFactory(questions: allQuestions,
+                                               options: questionsWithOptions,
+                                               correctAnswers: correctAnswers)
+        /// 2.3 Router
+        let router = NavigationControllerRouter(navigationController: navigationController,
+                                                factory: factory)
+        
+        // 3. Start game
+        App.delegate.game = startGame(questions: [firstQuestion],
+                                      router: router,
+                                      correctAnswers: correctAnswers)
+        
+        // 4. Configure window
+        let window = UIWindow(windowScene: windowScene)
+        window.rootViewController = navigationController
+        self.window = window
+        window.makeKeyAndVisible()
+    }
+}

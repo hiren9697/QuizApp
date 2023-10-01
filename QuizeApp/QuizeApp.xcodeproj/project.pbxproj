@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		872E35DC2AC84A7C002B4978 /* SubmitButtonController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872E35DB2AC84A7C002B4978 /* SubmitButtonController.swift */; };
+		872E35DE2AC9774D002B4978 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872E35DD2AC9774D002B4978 /* Constants.swift */; };
 		873C72EC2AB7671300D400EC /* QuizeEngine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 873C72EB2AB7671300D400EC /* QuizeEngine.framework */; };
 		873C72ED2AB7671300D400EC /* QuizeEngine.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 873C72EB2AB7671300D400EC /* QuizeEngine.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		873C72F02AB7755300D400EC /* QuestionTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873C72EF2AB7755300D400EC /* QuestionTypeTests.swift */; };
@@ -80,6 +81,7 @@
 
 /* Begin PBXFileReference section */
 		872E35DB2AC84A7C002B4978 /* SubmitButtonController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitButtonController.swift; sourceTree = "<group>"; };
+		872E35DD2AC9774D002B4978 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		873C72EB2AB7671300D400EC /* QuizeEngine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = QuizeEngine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		873C72EF2AB7755300D400EC /* QuestionTypeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionTypeTests.swift; sourceTree = "<group>"; };
 		873C72F12AB778BB00D400EC /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
@@ -181,10 +183,10 @@
 		8744D4EC2AB2AA9D00F7C0DE /* QuizeApp */ = {
 			isa = PBXGroup;
 			children = (
+				878A641F2AB5CB8B00B3E3A5 /* AppLifeCycle */,
 				87D665F72ABF2A0300F46656 /* Presenter */,
 				87D355542AB9FB230063DFA5 /* Factory */,
 				878A648F2AB7522200B3E3A5 /* Router */,
-				878A641F2AB5CB8B00B3E3A5 /* AppLifeCycle */,
 				878A64202AB5CB9C00B3E3A5 /* Storyboards */,
 				878A64362AB5D1EB00B3E3A5 /* Model */,
 				878A64222AB5CBBA00B3E3A5 /* ViewControllers */,
@@ -290,6 +292,7 @@
 				878A64292AB5CC7E00B3E3A5 /* ParentCells.swift */,
 				878A64922AB7529C00B3E3A5 /* Storyboards.swift */,
 				878A64942AB7530000B3E3A5 /* ParentVC.swift */,
+				872E35DD2AC9774D002B4978 /* Constants.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -478,6 +481,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				878A64382AB5D1F800B3E3A5 /* PresentableAnswer.swift in Sources */,
+				872E35DE2AC9774D002B4978 /* Constants.swift in Sources */,
 				87CD9ABE2ABA886A005D5409 /* iOSViewControllerFactory.swift in Sources */,
 				87D665FD2AC00B0D00F46656 /* QuestionPresenter.swift in Sources */,
 				87D355562AB9FB310063DFA5 /* ViewControllerFactory.swift in Sources */,
