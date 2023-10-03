@@ -9,6 +9,10 @@ import XCTest
 @testable import QuizeApp
 
 final class ResultVCTests: XCTestCase {
+    func test_viewDidLoad_rendersTitle() {
+        XCTAssertEqual(makeSUT().title, "Result")
+    }
+    
     func test_viewDidLoad_rendersSummary() {
         let summary = "Got 3 of 5 questions"
         XCTAssertEqual(makeSUT(summary: summary).lblHeader.text!, summary)
@@ -52,7 +56,8 @@ extension ResultVCTests {
         let resultVC = Storyboards
             .main
             .instantiateViewController(identifier: ResultVC.storyboardID) { coder in
-                ResultVC(summary: summary,
+                ResultVC(title: "Result",
+                         summary: summary,
                          answers: answers,
                          coder: coder)
             }

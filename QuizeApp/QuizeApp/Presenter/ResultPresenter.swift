@@ -14,6 +14,7 @@ struct ResultPresenter {
     let orderdQuestions: [QuestionType<String>]
     let summary: String
     let presentableAnswers: [PresentableAnswer]
+    let title = "Result"
     
     init(result: QuizResult<QuestionType<String>, [String]>,
          correctAnswers: [QuestionType<String>: [String]],

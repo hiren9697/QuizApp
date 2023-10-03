@@ -80,7 +80,8 @@ class iOSViewControllerFactory: ViewControllerFactory {
                                         orderedQuestions: questions)
         // Initialize ViewController
         let vc = Storyboards.main.instantiateViewController(identifier: ResultVC.storyboardID) { coder in
-            let vc = ResultVC(summary: presenter.summary,
+            let vc = ResultVC(title: presenter.title,
+                              summary: presenter.summary,
                               answers: presenter.presentableAnswers,
                               coder: coder)
             guard let vc = vc else {

@@ -87,6 +87,7 @@ final class iOSViewControllerFactoryTests: XCTestCase {
         let resultVC = sut.resultViewController(for: result) as! ResultVC
         
         // Test
+        XCTAssertEqual(resultVC.title, resultPresenter.title)
         XCTAssertEqual(resultVC.summary, resultPresenter.summary)
         XCTAssertEqual(resultVC.answers, resultPresenter.presentableAnswers)
     }

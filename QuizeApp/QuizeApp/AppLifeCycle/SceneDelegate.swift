@@ -72,7 +72,7 @@ extension SceneDelegate {
         lazy var correctAnswers: Dictionary<QuestionType<String>, [String]> = {
             return [
                 firstQuestion: [option1_1, option1_2],
-                secondQuestion: [option1_1]
+                secondQuestion: [option2_1]
             ]
         }()
         
@@ -88,7 +88,7 @@ extension SceneDelegate {
                                                 factory: factory)
         
         // 3. Start game
-        App.delegate.game = startGame(questions: [firstQuestion],
+        App.delegate.game = startGame(questions: allQuestions,
                                       router: router,
                                       correctAnswers: correctAnswers)
         

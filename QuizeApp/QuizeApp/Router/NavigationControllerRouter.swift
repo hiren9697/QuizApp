@@ -33,7 +33,8 @@ class NavigationControllerRouter: Router {
                                                       button: submitButton)
         // 2. Configure ViewController
         let questionVC = factory.questionViewController(for: question,
-                                                        answerCallback: { selection in
+                                                        answerCallback: {[weak self] selection in
+            guard let _ = self else { return }
             buttonController.update(selection)
         })
         questionVC.navigationItem.rightBarButtonItem = submitButton

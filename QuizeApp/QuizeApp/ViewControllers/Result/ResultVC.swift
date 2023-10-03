@@ -15,12 +15,14 @@ class ResultVC: ParentVC {
     let summary: String
     let answers: [PresentableAnswer]
     
-    init?(summary: String,
+    init?(title: String,
+          summary: String,
           answers: [PresentableAnswer],
           coder: NSCoder) {
         self.summary = summary
         self.answers = answers
         super.init(coder: coder)
+        self.title = title
     }
     
     @available(*, unavailable, renamed: "init(summary:coder:)")

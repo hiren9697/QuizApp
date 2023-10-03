@@ -15,6 +15,16 @@ final class ResultPresenterTests: XCTestCase {
     let firstMultipleAnsweQuestion = QuestionType.multiAnswer("Q3")
     let secondMultipleAnsweQuestion = QuestionType.multiAnswer("Q4")
     
+    func test_returnsCorrectTitle() {
+        let result: QuizResult<QuestionType<String>,
+                               [String]> = QuizResult(answers: [:],
+                                                      score: 0)
+        let sut = makeSUT(result: result,
+                          correctAnswers: [:],
+                          orderedQuestions: [])
+        XCTAssertEqual(sut.title, "Result")
+    }
+    
     func test_summary_withZeroQuestion() {
         let sut = makeSUT(result: QuizResult(answers: [:],
                                              score: 0),
@@ -25,10 +35,10 @@ final class ResultPresenterTests: XCTestCase {
     
     func test_summary_withTwoQuestionAndOneScore() {
         let sut = makeSUT(result: QuizResult(answers: [firstSingleAnsweQuestion: ["A1"],
-                                                       firstMultipleAnsweQuestion: ["A2"]],
+                                                     firstMultipleAnsweQuestion: ["A2"]],
                                              score: 1),
                           correctAnswers: [firstSingleAnsweQuestion: ["A1"],
-                                           firstMultipleAnsweQuestion: ["A1"]],
+                                         firstMultipleAnsweQuestion: ["A1"]],
                           orderedQuestions: [firstSingleAnsweQuestion,
                                              firstMultipleAnsweQuestion])
         XCTAssertEqual(sut.summary, "You got 1/2 correct")
@@ -44,17 +54,17 @@ final class ResultPresenterTests: XCTestCase {
     
     func test_presentableAnswers_withTwoQuestionOneCorrectOneIncorrect() {
         let sut = makeSUT(result: QuizResult(answers: [secondMultipleAnsweQuestion: ["A1"],
-                                                       secondSingleAnsweQuestion: ["A2"]],
+                                                         secondSingleAnsweQuestion: ["A2"]],
                                              score: 1),
                           correctAnswers: [secondMultipleAnsweQuestion: ["A1"],
-                                           secondSingleAnsweQuestion: ["A1"]],
+                                             secondSingleAnsweQuestion: ["A1"]],
                           orderedQuestions: [secondMultipleAnsweQuestion,
                                              secondSingleAnsweQuestion])
         XCTAssertEqual(sut.presentableAnswers,
                        [PresentableAnswer(question: "Q4", answer: "A1"),
-                       PresentableAnswer(question: "Q2", answer: "A1", wrongAnswer: "A2")])
+                        PresentableAnswer(question: "Q2", answer: "A1", wrongAnswer: "A2")])
     }
-
+    
     
     // MARK: - Helpers
     func makeSUT(result: QuizResult<QuestionType<String>, [String]>,

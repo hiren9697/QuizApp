@@ -35,8 +35,8 @@ class Flow<Question: Hashable,
     }
     
     private func nextCallback(currentQuestion: Question)-> (Answer)-> Void {
-        return { answer in
-            self.routeNext(question: currentQuestion, answer: answer)
+        return {[weak self] answer in
+            self?.routeNext(question: currentQuestion, answer: answer)
         }
     }
     
